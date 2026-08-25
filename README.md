@@ -51,17 +51,33 @@ função, quais responsabilidades ela acumula.
 ### Entregas
 
 1. Árvore de pastas e arquivos.
+
+```
+matriculas-camadas/
+├──  .gitignore
+├──  business.py
+├──  escola.db
+├──  presentation.py
+├──  README.md
+├──  test_integracao.py
+|
+└───persistence/
+    ├──  consultas.py
+    └──  inicializadorbd.py
+```
 2. Tabela de imports permitidos: quem pode importar quem, e quem nunca importa quem.
 3. Uma frase justificando cada decisão que gerou discussão no grupo.
 4. A declaração de se as camadas ficaram fechadas ou abertas, e por quê.
+
+      - R: Aberto. O `presentation.py` acaba chamando o repositório para criar e popular o BD, pulando responsabilidades da camada de persistência e acoplando camadas.
 
 ### Tabela de imports
 
 | Módulo | Pode importar | Nunca importa |
 |---|---|---|
-| | | |
-| | | |
-| | | |
+| percistence | nenhum | todos |
+|business| percistence | presentation |
+| presentation | todos | nenhum |
 
 ### Perguntas para responder na apresentação
 
